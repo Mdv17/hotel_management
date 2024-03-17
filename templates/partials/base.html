@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>:: U-Listing Directory - Listing HTML Template ::</title>
+    <title>:: Mzansi Luxuries ::</title>
     <base href="{% static '/' %}">
 
     <!-- Favicon -->
@@ -20,7 +20,13 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /> 
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">  {% endcomment %}
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -36,18 +42,20 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800&display=swap&subset=latin-ext,vietnamese" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800" rel="stylesheet" type="text/css">
+
+    <script>{% static "scripts/custom.js" %}</script>
 </head>
 
 <body>
 
     <!-- Preloader Start -->
-    {<div class="preloader">
+    {% comment %} <div class="preloader">
         <div class="utf-preloader">
             <span></span>
             <span></span>
             <span></span>
         </div>
-    </div>
+    </div> {% endcomment %}
     <!-- Preloader End -->
 
     <!-- Wrapper -->
@@ -57,7 +65,7 @@
                 <div class="container">
                     <div class="utf_left_side">
                         <div id="logo">
-                            <a href="/"><img src="{% static 'images/mdvlogo.png' %}" alt="" id="logo"/></a>
+                            <a href="/"><img src="{% static 'images/mdvlogo5.png' %}" alt="" id="logo"/></a>
                         </div>
                         <div class="mmenu-trigger">
                             <button class="hamburger utfbutton_collapse" type="button">
@@ -86,7 +94,7 @@
 
                             {% if user.is_authenticated %}
                                 <a href="{% url 'userauths:sign-in' %}" class="button border sign-in"><i class="fa fa-th"></i> Dashboard </a>
-                                <a href="{% url 'userauths:sign-up' %}" class="button border sign-in"><i class="fa fa-sign-out"></i> Log Out</a>
+                                <a href="{% url 'userauths:sign-out' %}" class="button border sign-in"><i class="fa fa-sign-out"></i> Log Out</a>
                             {% else %}
                                 <a href="{% url 'userauths:sign-up' %}" class="button border sign-in"><i class="fa fa-sign-in"></i> Register</a>
                                 <a href="{% url 'userauths:sign-in' %}" class="button border sign-in"><i class="fa fa-sign-in"></i> Log In</a>
@@ -164,7 +172,21 @@
 <div id="bottom_backto_top"><a href="#"></a></div>
 </div>
 
+<script>
+    {% for message in messages %}
+        Swal.fire({
+            icon:"{{message.tags}}",
+            title: "{{message}}",
+            text: "{{message.tags}}"
+            timer: 4500
+        })
+    {% endfor %}
+</script>
+
+
+
 <!-- Scripts -->
+<script src="{% static 'scripts/custom.js' %}"></script>
 <script src="{% static 'scripts/jquery-3.4.1.min.js' %}"></script>
 <script src="{% static 'scripts/chosen.min.js' %}"></script>
 <script src="{% static 'scripts/slick.min.js' %}"></script>
@@ -177,6 +199,15 @@
 <script src="{% static 'scripts/color_switcher.js' %}"></script>
 <script src="{% static 'scripts/jquery_custom.js' %}"></script>
 <script src="{% static 'scripts/typed.js' %}"></script>
+<script src="{% static 'scripts/infobox.min.js' %}"></script> 
+<script src="{% static 'scripts/markerclusterer.js' %}"></script> 
+<script src="{% static 'scripts/maps.js' %}"></script>
+<script src="{% static 'scripts/datedropper.js' %}"></script> 
+<script src="{% static 'scripts/quantityButtons.js' %}"></script>
+<script src="{% static 'scripts/moment.min.js' %}"></script>
+<script src="{% static 'scripts/daterangepicker.js' %}"></script>
+<script src="{% static 'scripts/moment.min.js' %}"></script>
+<script src="{% static 'scripts/daterangepicker.js' %}"></script>
 
 <script>
 function initAutocomplete() {

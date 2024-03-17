@@ -25,6 +25,7 @@ urlpatterns = [
     # Custom urls
     path("", include("hotel.urls")),
     path("user/", include("userauths.urls")),
+    path("booking/", include("booking.urls")),
 
     # CKEditor
     path("ckeditor5/", include('django_ckeditor_5.urls')),

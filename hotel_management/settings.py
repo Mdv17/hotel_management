@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'addon',
     'user_dashboard',
     'userauths',
+    'booking',
 
     # Third party apps
     'import_export',
@@ -154,7 +155,7 @@ AUTH_USER_MODEL = "userauths.User"
 JAZZMIN_SETTINGS = {
     "site_header": "MZANSI Luxuries",
     "site_brand": "Live life in style",
-    "site_logo": "/images/mdvlogo.png",
+    "site_logo": "/images/mdvlogo5.png",
     "welcome_sign": "Welcome to Jozi Suite, Login Now",
     "copyright": "Mzansi Luxuries",
 

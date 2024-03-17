@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from userauths.models import User, Profile
 from django.contrib import messages
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from userauths.forms import UserRegisterForm
 
 # Create your views here.
@@ -65,3 +65,8 @@ def loginViewTemp(request):
             return redirect("userauths:sign-in")
         
     return render(request, "userauths/sign-in.html")
+
+def LogOutView(request):
+    logout(request)
+    messages.success(request, "You have been logged out")
+    return redirect("userauths:sign-in")
